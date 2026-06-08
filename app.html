@@ -1054,6 +1054,175 @@ hr.d{border:none;border-top:1px solid var(--line2);margin:.75rem 0}
   .cop-panel{width:calc(100vw - 36px);right:18px}
   .tb-search{display:none}
 }
+
+/* ════════════════════════════════════════════════
+   REDESIGN — Comunicazioni multicanale, Voce AI, Make
+   ════════════════════════════════════════════════ */
+:root{--wa:#25D366;--wa-dk:#075E54;--wa-tl:#128C7E;--wa-chat:#ECE5DD;--wa-out:#DCF8C6;
+  --pec-dk:#0B5C3B;--sms-blue:#0B84FE;}
+
+/* ── Layout 2 colonne comunicazioni ── */
+.comm-wrap{display:grid;grid-template-columns:1fr 320px;gap:16px;align-items:start}
+@media(max-width:900px){.comm-wrap{grid-template-columns:1fr}}
+.comm-side .card{margin-bottom:12px}
+.ci-row{display:flex;gap:9px;align-items:center;font-size:12.5px;padding:7px 0;border-bottom:1px solid var(--line2);color:var(--ink2)}
+.ci-row:last-child{border-bottom:none}
+.ci-row .ci-ic{width:24px;text-align:center;flex-shrink:0}
+.seq-row{display:flex;gap:9px;align-items:center;padding:7px 0;font-size:12px;border-bottom:1px solid var(--line2)}
+.seq-row:last-child{border-bottom:none}
+.seq-dot{width:18px;height:18px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:10px;flex-shrink:0;color:#fff}
+
+/* ── Channel picker (pill colorate) ── */
+.ch-pick{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:14px}
+.ch-btn{display:inline-flex;align-items:center;gap:6px;padding:7px 13px;border-radius:22px;border:1.5px solid var(--line);font-size:12px;font-weight:600;cursor:pointer;transition:all .15s;background:var(--white);color:var(--ink2)}
+.ch-btn:hover{background:var(--surf)}
+.ch-btn.on{border-color:currentColor;background:color-mix(in srgb,currentColor 10%,#fff)}
+.ch-stage{border:1px solid var(--line);border-radius:16px;overflow:hidden;background:var(--white);box-shadow:var(--shad-sm,0 1px 3px rgba(13,26,43,.06))}
+
+/* ── Header generico canale ── */
+.chx-head{display:flex;align-items:center;gap:11px;padding:12px 16px;color:#fff}
+.chx-head .chx-av{width:38px;height:38px;border-radius:50%;background:rgba(255,255,255,.22);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:14px;flex-shrink:0}
+.chx-head .chx-nm{font-weight:700;font-size:14px;line-height:1.2}
+.chx-head .chx-sub{font-size:11px;opacity:.85;margin-top:1px}
+.chx-head .chx-act{margin-left:auto;display:flex;gap:8px}
+.chx-ibtn{width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,.18);border:none;color:#fff;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:15px}
+.chx-ibtn:hover{background:rgba(255,255,255,.32)}
+
+/* ── WhatsApp ── */
+.wa-head{background:var(--wa-tl)}
+.wa-body{background:var(--wa-chat);background-image:url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23000' fill-opacity='0.025'%3E%3Cpath d='M0 0h2v2H0zM20 20h2v2h-2z'/%3E%3C/g%3E%3C/svg%3E");min-height:300px;max-height:380px;overflow-y:auto;padding:16px}
+.wa-msg{display:flex;margin-bottom:9px}
+.wa-msg.out{justify-content:flex-end}
+.wa-bubble{max-width:75%;padding:7px 10px 5px;border-radius:9px;font-size:13.5px;line-height:1.4;box-shadow:0 1px 1px rgba(0,0,0,.08);position:relative}
+.wa-msg.in .wa-bubble{background:#fff;border-top-left-radius:2px}
+.wa-msg.out .wa-bubble{background:var(--wa-out);border-top-right-radius:2px}
+.wa-time{font-size:10px;color:rgba(0,0,0,.42);float:right;margin:6px 0 -2px 10px}
+.wa-tick{color:#34B7F1;font-weight:700}
+.wa-foot{display:flex;align-items:center;gap:9px;padding:10px 14px;background:#F0F0F0;border-top:1px solid var(--line)}
+.wa-inp{flex:1;border:none;background:#fff;border-radius:22px;padding:10px 15px;font-family:var(--font);font-size:13.5px;outline:none}
+.wa-send{width:42px;height:42px;border-radius:50%;background:var(--wa-tl);border:none;color:#fff;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:17px;flex-shrink:0}
+.wa-send:hover{background:var(--wa-dk)}
+
+/* Barra agente AGENTE collegabile (playground) */
+.ag-bar{display:flex;align-items:center;gap:10px;padding:10px 14px;background:linear-gradient(90deg,#EAF7F1,#F3FBF7);border-bottom:1px solid rgba(15,169,110,.2);flex-wrap:wrap}
+.ag-bar .ag-ic{width:30px;height:30px;border-radius:9px;background:linear-gradient(135deg,#0FA96E,#34D399);display:flex;align-items:center;justify-content:center;font-size:15px;flex-shrink:0}
+.ag-sel{border:1px solid var(--line);border-radius:8px;padding:5px 10px;font-family:var(--font);font-size:12px;background:#fff;outline:none;color:var(--ink)}
+.switch{position:relative;width:38px;height:21px;flex-shrink:0;cursor:pointer}
+.switch input{display:none}
+.switch .sl{position:absolute;inset:0;background:var(--ink4);border-radius:20px;transition:.2s}
+.switch .sl::before{content:'';position:absolute;width:15px;height:15px;border-radius:50%;background:#fff;top:3px;left:3px;transition:.2s}
+.switch input:checked+.sl{background:var(--green)}
+.switch input:checked+.sl::before{transform:translateX(17px)}
+.ag-typing{display:inline-flex;gap:3px;align-items:center}
+.ag-typing i{width:5px;height:5px;border-radius:50%;background:var(--wa-tl);animation:agt 1s infinite}
+.ag-typing i:nth-child(2){animation-delay:.15s}.ag-typing i:nth-child(3){animation-delay:.3s}
+@keyframes agt{0%,60%,100%{opacity:.3;transform:translateY(0)}30%{opacity:1;transform:translateY(-3px)}}
+
+/* ── Email ── */
+.em-head{background:linear-gradient(135deg,#1E74D4,#3A9AF5)}
+.em-list{max-height:200px;overflow-y:auto;border-bottom:1px solid var(--line)}
+.em-item{display:flex;gap:11px;padding:12px 16px;border-bottom:1px solid var(--line2);cursor:pointer;transition:.12s}
+.em-item:hover{background:var(--surf)}
+.em-item.unread{background:#F5F9FE}
+.em-item.unread .em-from{font-weight:700}
+.em-unreaddot{width:8px;height:8px;border-radius:50%;background:var(--b500);margin-top:6px;flex-shrink:0}
+.em-avatar{width:34px;height:34px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:12px;color:#fff;flex-shrink:0}
+.em-from{font-size:13px;color:var(--ink)}
+.em-subj{font-size:12.5px;color:var(--ink);font-weight:600;margin-top:1px}
+.em-prev{font-size:12px;color:var(--ink3);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-top:1px}
+.em-when{font-size:11px;color:var(--ink3);margin-left:auto;flex-shrink:0;white-space:nowrap}
+.em-compose{padding:14px 16px;background:var(--surf)}
+.em-field{display:flex;align-items:center;gap:8px;padding:7px 0;border-bottom:1px solid var(--line);font-size:13px}
+.em-field label{color:var(--ink3);width:54px;flex-shrink:0;font-weight:500}
+.em-field input{flex:1;border:none;background:transparent;font-family:var(--font);font-size:13px;outline:none;color:var(--ink)}
+.em-body{width:100%;min-height:96px;border:none;background:transparent;font-family:var(--font);font-size:13.5px;line-height:1.6;outline:none;resize:vertical;padding:11px 0;color:var(--ink)}
+
+/* ── PEC ── */
+.pec-head{background:linear-gradient(135deg,#0B5C3B,#0FA96E)}
+.pec-banner{display:flex;align-items:center;gap:10px;padding:11px 16px;background:#EAF7F1;border-bottom:1px solid rgba(11,92,59,.18);font-size:12px;color:var(--pec-dk)}
+.pec-seal{width:30px;height:30px;border-radius:8px;background:var(--pec-dk);color:#fff;display:flex;align-items:center;justify-content:center;font-size:15px;flex-shrink:0}
+.pec-item{padding:13px 16px;border-bottom:1px solid var(--line2)}
+.pec-meta{display:flex;gap:8px;align-items:center;font-size:11px;color:var(--ink3);margin-bottom:5px}
+.pec-rcpt{display:inline-flex;align-items:center;gap:4px;font-size:10.5px;font-weight:600;padding:2px 8px;border-radius:20px;background:var(--green-bg);color:var(--pec-dk)}
+.pec-rcpt.wait{background:var(--amber-bg);color:var(--amber)}
+
+/* ── SMS ── */
+.sms-head{background:linear-gradient(135deg,#D97B00,#F5A623)}
+.sms-body{background:#F4F5F7;min-height:260px;max-height:340px;overflow-y:auto;padding:16px}
+.sms-msg{display:flex;margin-bottom:8px}
+.sms-msg.out{justify-content:flex-end}
+.sms-bubble{max-width:74%;padding:8px 13px;border-radius:18px;font-size:13.5px;line-height:1.4}
+.sms-msg.in .sms-bubble{background:#E5E5EA;color:#000;border-bottom-left-radius:5px}
+.sms-msg.out .sms-bubble{background:var(--sms-blue);color:#fff;border-bottom-right-radius:5px}
+.sms-foot{display:flex;align-items:center;gap:9px;padding:11px 14px;background:#fff;border-top:1px solid var(--line)}
+.sms-inp{flex:1;border:1px solid var(--line);background:#fff;border-radius:20px;padding:9px 15px;font-family:var(--font);font-size:13.5px;outline:none}
+.sms-cnt{font-size:10px;color:var(--ink3);min-width:54px;text-align:right}
+
+/* ── Voce AI · stile ElevenLabs ── */
+.vx-grid{display:grid;grid-template-columns:1fr 1.15fr;gap:16px;align-items:start}
+@media(max-width:900px){.vx-grid{grid-template-columns:1fr}}
+.vx-agent{display:flex;gap:12px;align-items:center;border:1px solid var(--line);border-radius:14px;padding:13px;cursor:pointer;transition:.15s;background:#fff;margin-bottom:10px}
+.vx-agent:hover{box-shadow:var(--shad-md);transform:translateY(-1px)}
+.vx-agent.on{border-color:var(--b500);box-shadow:0 0 0 2px var(--b100)}
+.vx-mini-orb{width:46px;height:46px;border-radius:50%;flex-shrink:0;background:conic-gradient(from 0deg,#1E74D4,#34D399,#9B7EE8,#1E74D4);position:relative}
+.vx-mini-orb::after{content:'';position:absolute;inset:5px;border-radius:50%;background:#fff}
+.vx-mini-orb span{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:18px;z-index:2}
+.vx-stage{border:1px solid var(--line);border-radius:18px;background:radial-gradient(120% 90% at 50% 0%,#0A2D5C,#04183A 70%);color:#fff;padding:28px 24px;text-align:center;position:relative;overflow:hidden}
+.vx-orb-wrap{height:170px;display:flex;align-items:center;justify-content:center;position:relative}
+.vx-orb{width:130px;height:130px;border-radius:50%;background:conic-gradient(from 0deg,#2E8FE6,#34D399,#9B7EE8,#2E8FE6);position:relative;filter:saturate(1.2);box-shadow:0 0 60px rgba(52,211,153,.35),0 0 90px rgba(46,143,230,.25);animation:orb-rot 8s linear infinite}
+.vx-orb::before{content:'';position:absolute;inset:14px;border-radius:50%;background:radial-gradient(circle at 35% 30%,rgba(255,255,255,.7),rgba(10,45,92,.1) 60%,#0A2D5C)}
+.vx-orb.idle{animation:orb-rot 18s linear infinite}
+.vx-orb.idle::before{inset:22px}
+@keyframes orb-rot{to{transform:rotate(360deg)}}
+.vx-ring{position:absolute;border-radius:50%;border:1.5px solid rgba(52,211,153,.4)}
+.vx-orb.live~.vx-ring{animation:ring-pulse 1.8s ease-out infinite}
+@keyframes ring-pulse{0%{width:130px;height:130px;opacity:.7}100%{width:230px;height:230px;opacity:0}}
+.vx-wave{display:flex;gap:4px;align-items:center;justify-content:center;height:30px;margin-top:6px}
+.vx-wave i{width:4px;background:#34D399;border-radius:2px;height:6px}
+.vx-wave.live i{animation:wv .9s ease-in-out infinite}
+.vx-wave i:nth-child(2){animation-delay:.1s}.vx-wave i:nth-child(3){animation-delay:.2s}.vx-wave i:nth-child(4){animation-delay:.3s}.vx-wave i:nth-child(5){animation-delay:.15s}.vx-wave i:nth-child(6){animation-delay:.25s}.vx-wave i:nth-child(7){animation-delay:.05s}
+@keyframes wv{0%,100%{height:6px}50%{height:26px}}
+.vx-status{font-size:12px;color:rgba(255,255,255,.6);margin-top:4px;letter-spacing:.04em}
+.vx-name{font-size:18px;font-weight:700;margin-top:8px}
+.vx-callbtn{margin-top:18px;padding:12px 26px;border-radius:30px;border:none;font-size:14px;font-weight:600;cursor:pointer;font-family:var(--font);transition:.15s}
+.vx-callbtn.start{background:#fff;color:#04183A}
+.vx-callbtn.start:hover{transform:scale(1.04)}
+.vx-callbtn.stop{background:#C93040;color:#fff}
+.vx-transcript{margin-top:18px;text-align:left;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:12px;padding:13px;max-height:150px;overflow-y:auto;font-size:12.5px;line-height:1.6}
+.vx-tline{margin-bottom:7px}
+.vx-tline b{color:#34D399}
+.vx-tline.user b{color:#9DCDFC}
+
+/* ── Make.com canvas ── */
+.mk-wrap{display:grid;grid-template-columns:minmax(0,1fr) 290px;gap:16px;align-items:start}
+@media(max-width:900px){.mk-wrap{grid-template-columns:1fr}}
+.mk-canvas{position:relative;border:1px solid var(--line);border-radius:16px;background:#FBFBFC;background-image:radial-gradient(#D8E0EA 1.2px,transparent 1.2px);background-size:20px 20px;min-height:430px;overflow:auto;padding:20px}
+.mk-toolbar{display:flex;align-items:center;gap:8px;padding:10px 14px;border-bottom:1px solid var(--line);background:#fff;border-radius:16px 16px 0 0;flex-wrap:wrap}
+.mk-run{display:inline-flex;align-items:center;gap:7px;background:#6D00CC;color:#fff;border:none;padding:8px 16px;border-radius:9px;font-size:13px;font-weight:600;cursor:pointer;font-family:var(--font)}
+.mk-run:hover{background:#5800a6}
+.mk-tbtn{background:#fff;border:1px solid var(--line);border-radius:8px;padding:7px 12px;font-size:12px;font-weight:500;cursor:pointer;color:var(--ink2);font-family:var(--font)}
+.mk-tbtn:hover{background:var(--surf)}
+.mk-flow{display:flex;align-items:center;gap:0;flex-wrap:nowrap;min-width:max-content;padding:34px 10px}
+.mk-node{display:flex;flex-direction:column;align-items:center;gap:8px;position:relative;z-index:2}
+.mk-bubble{width:78px;height:78px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:32px;color:#fff;position:relative;cursor:pointer;box-shadow:0 6px 18px rgba(13,26,43,.14);transition:.15s}
+.mk-bubble:hover{transform:scale(1.07)}
+.mk-bubble::after{content:'';position:absolute;inset:-4px;border-radius:50%;border:2px solid #fff;box-shadow:0 0 0 2px currentColor;opacity:.0}
+.mk-bubble.sel::after{opacity:.4}
+.mk-badge{position:absolute;top:-5px;right:-5px;width:22px;height:22px;border-radius:50%;background:#fff;color:#0D1A2B;font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 6px rgba(0,0,0,.18)}
+.mk-lbl{font-size:11.5px;font-weight:600;text-align:center;max-width:96px;line-height:1.25}
+.mk-sub{font-size:10px;color:var(--ink3);text-align:center;max-width:104px;line-height:1.2}
+.mk-link{width:64px;height:3px;flex-shrink:0;align-self:flex-start;margin-top:38px;position:relative}
+.mk-link::before{content:'';position:absolute;inset:0;border-top:3px dotted var(--ink4);border-radius:2px}
+.mk-link::after{content:'';position:absolute;right:-2px;top:-4px;width:0;height:0;border-left:7px solid var(--ink4);border-top:5px solid transparent;border-bottom:5px solid transparent}
+.mk-addnode{width:50px;height:50px;border-radius:50%;border:2px dashed var(--ink4);background:#fff;color:var(--ink3);font-size:22px;cursor:pointer;align-self:flex-start;margin-top:14px}
+.mk-addnode:hover{border-color:var(--b500);color:var(--b600)}
+.mk-scn{display:flex;align-items:center;gap:10px;border:1px solid var(--line);border-radius:11px;padding:11px;cursor:pointer;margin-bottom:8px;transition:.12s;background:#fff}
+.mk-scn:hover{box-shadow:var(--shad-md)}
+.mk-scn.on{border-color:var(--b500);background:var(--b50)}
+.mk-scn-ic{width:34px;height:34px;border-radius:9px;background:linear-gradient(135deg,#6D00CC,#A855F7);display:flex;align-items:center;justify-content:center;font-size:16px;color:#fff;flex-shrink:0}
+.mk-pill{font-size:10px;font-weight:600;padding:2px 8px;border-radius:20px}
+.mk-pill.on{background:var(--green-bg);color:var(--green-dk)}
+.mk-pill.off{background:var(--surf);color:var(--ink3)}
 </style>
 </head>
 <body>
@@ -2931,9 +3100,7 @@ function _fillSettingsModal() {
 
 </div>
 
-  </div><!-- /content -->
-
-  <!-- V2 NEW VIEWS -->
+  <!-- V2 NEW VIEWS (dentro .content per ereditare padding ed evitare il gap) -->
   <div class="view" id="view-debitori"></div>
   <div class="view" id="view-debtor"></div>
   <div class="view" id="view-comunicazioni"></div>
@@ -2945,6 +3112,8 @@ function _fillSettingsModal() {
   <div class="view" id="view-contacts"></div>
   <div class="view" id="view-integrations"></div>
   <div class="view" id="view-workflow"></div>
+
+  </div><!-- /content -->
 
 </main>
 
@@ -4389,33 +4558,25 @@ async function renderDebtorTab(id, tab, el){
   const d=D.find(x=>x.id===id); if(!d)return;
   const cont = document.getElementById('dtab-content'); if(!cont)return;
   if(tab==='comunicazioni'){
+    const SEQ=[['done','Gg 0','WhatsApp contatto'],['done','Gg 3','Email riepilogo'],['next','Gg 7','Chiamata AI'],['wait','Gg 14','WhatsApp reminder'],['wait','Gg 30','Escalation umano']];
     cont.innerHTML=`
-    <div class="g32">
-      <div>
-        <div class="ch-pick">${Object.entries(CH).map(([k,v])=>`<button class="ch-btn${PICK_CH===k?' on':''}" style="color:${v.c}" onclick="PICK_CH='${k}';renderDebtorTab(${id},'comunicazioni')">  ${v.i} ${v.n}</button>`).join('')}</div>
-        <div id="ibThread" style="background:var(--surf);border-radius:12px;padding:14px;min-height:180px;max-height:300px;overflow-y:auto;margin-bottom:10px">
-          ${d.comms.map(m=>`<div class="ib-msg ${m.dir==='out'?'out':''}">
-            <div class="ib-bubble" style="background:${m.dir==='out'?CH[m.ch]?.bg||'var(--b100)':'var(--white)'};border:1px solid var(--line)">${m.text}</div>
-            <div class="ib-meta">${CH[m.ch]?.i||''} ${m.time} · ${m.by}</div>
-          </div>`).join('') || '<div style="text-align:center;color:var(--ink3);padding:20px;font-size:13px">Nessuna comunicazione ancora</div>'}
-        </div>
-        <div style="display:flex;gap:8px">
-          <input id="ibInput" placeholder="Scrivi messaggio ${CH[PICK_CH]?.n||''}..." style="flex:1;border:1px solid var(--line);border-radius:9px;padding:9px 12px;font-family:var(--font);font-size:13px;outline:none" onkeydown="if(event.key==='Enter')ibSend(${id})">
-          <button class="btn btn-ou" onclick="ibAiReply(${id})">✨ AI</button>
-          <button class="btn btn-pr" onclick="ibSend(${id})">Invia</button>
-        </div>
+    <div class="comm-wrap">
+      <div class="comm-main">
+        <div class="ch-pick">${Object.entries(CH).map(([k,v])=>`<button class="ch-btn${PICK_CH===k?' on':''}" style="color:${v.c}" onclick="PICK_CH='${k}';renderChannel(${id})">${v.i} ${v.n}</button>`).join('')}</div>
+        <div id="ch-stage" class="ch-stage"></div>
       </div>
-      <div>
-        <div class="card" style="margin-bottom:12px">
-          <div style="font-size:12px;font-weight:600;margin-bottom:10px;color:var(--ink2)">📋 Dati contatto</div>
-          ${[['📞',d.tel],['✉️',d.email],['🏙️',d.citta],['🆔',d.cf]].map(r=>`<div style="display:flex;gap:8px;font-size:12px;padding:5px 0;border-bottom:1px solid var(--line2);color:var(--ink2)"><span>${r[0]}</span><span>${r[1]}</span></div>`).join('')}
+      <div class="comm-side">
+        <div class="card">
+          <div style="font-size:12px;font-weight:700;margin-bottom:8px;color:var(--ink2)">📇 Dati contatto</div>
+          ${[['📞',d.tel],['✉️',d.email],['🏙️',d.citta],['🆔',d.cf]].map(r=>`<div class="ci-row"><span class="ci-ic">${r[0]}</span><span>${r[1]}</span></div>`).join('')}
         </div>
         <div class="card">
-          <div style="font-size:12px;font-weight:600;margin-bottom:10px;color:var(--ink2)">⚡ Sequenza attiva</div>
-          ${[['✓','Gg 0','WhatsApp contatto','done'],['✓','Gg 3','Email riepilogo','done'],['⏱','Gg 7','Chiamata AI','next'],['○','Gg 14','WhatsApp reminder','wait'],['○','Gg 30','Escalation umano','wait']].map(s=>`<div style="display:flex;gap:8px;align-items:center;padding:6px 0;font-size:12px;border-bottom:1px solid var(--line2)"><span style="color:${s[3]==='done'?'var(--green)':s[3]==='next'?'var(--amber)':'var(--ink4)'}">${s[0]}</span><span style="color:var(--ink3)">${s[1]}</span><span style="flex:1">${s[2]}</span>${s[3]==='next'?'<span class="badge" style="background:var(--amber-bg);color:var(--amber)">Prossimo</span>':''}</div>`).join('')}
+          <div style="font-size:12px;font-weight:700;margin-bottom:8px;color:var(--ink2)">⚡ Sequenza attiva</div>
+          ${SEQ.map(s=>`<div class="seq-row"><span class="seq-dot" style="background:${s[0]==='done'?'var(--green)':s[0]==='next'?'var(--amber)':'var(--ink4)'}">${s[0]==='done'?'✓':s[0]==='next'?'!':'·'}</span><span style="color:var(--ink3);min-width:34px">${s[1]}</span><span style="flex:1">${s[2]}</span>${s[0]==='next'?'<span class="badge" style="background:var(--amber-bg);color:var(--amber)">Prossimo</span>':''}</div>`).join('')}
         </div>
       </div>
     </div>`;
+    renderChannel(id);
   } else if(tab==='piano'){
     if(!d.plan){
       cont.innerHTML=`<div class="empty"><h3>Nessun piano attivo</h3><p>Crea un piano di rientro o proponi un saldo e stralcio</p><div style="display:flex;gap:8px;justify-content:center;margin-top:16px"><button class="btn btn-pr" onclick="createPlan(${id})">📅 Crea piano</button><button class="btn btn-ou" onclick="proposeStralcio(${id})">💰 Saldo e stralcio AI</button></div></div>`;
@@ -4450,24 +4611,274 @@ async function renderDebtorTab(id, tab, el){
   }
 }
 
-async function ibSend(id){
+/* ══════════════════════════════════════════════
+   MOTORE COMUNICAZIONI MULTICANALE
+   ══════════════════════════════════════════════ */
+const AG = { on:true, agent:'Milo' };          // agente AI collegato alla chat WhatsApp
+const VSTATE = { agent:null };                 // agente selezionato nella pagina Voce AI
+const VOICES = [
+  {id:'Giulia',  desc:'Voce IT femminile · empatica',  tag:'Recupero soft'},
+  {id:'Roberta', desc:'Receptionist · formale',         tag:'Primo contatto'},
+  {id:'Milo',    desc:'Onboarding · diretto',           tag:'WhatsApp + Voce'}
+];
+let _VX_TIMER = null;
+
+function chMsgs(d, ch){ return d.comms.filter(m=>m.ch===ch).slice().sort((a,b)=>(a.ts||0)-(b.ts||0)); }
+function pushComm(d, ch, dir, by, text){
+  const ts=Date.now();
+  d.comms.unshift({ch,dir,by,time:'Adesso',text,ts});
+  d.timeline.unshift({time:'Adesso',type:ch,act:CH[ch].n+(dir==='out'?' inviato':' ricevuto')});
+}
+function scrollBottom(elId){ const e=document.getElementById(elId); if(e) e.scrollTop=e.scrollHeight; }
+function nowHM(){ const n=new Date(); return ('0'+n.getHours()).slice(-2)+':'+('0'+n.getMinutes()).slice(-2); }
+
+function renderChannel(id){
   const d=D.find(x=>x.id===id); if(!d)return;
-  const inp=document.getElementById('ibInput'); const txt=inp.value.trim(); if(!txt)return;
-  d.comms.unshift({ch:PICK_CH,dir:'out',by:'GR',time:'Adesso',text:txt,ts:Date.now()});
-  d.timeline.unshift({time:'Adesso',type:PICK_CH,act:CH[PICK_CH].n+' inviato'});
-  inp.value='';
-  renderDebtorTab(id,'comunicazioni');
-  toast(CH[PICK_CH].n+' inviato a '+d.nome);
+  const stage=document.getElementById('ch-stage'); if(!stage)return;
+  // sincronizza pill canale attiva
+  document.querySelectorAll('.ch-pick .ch-btn').forEach(btn=>{
+    const oc=btn.getAttribute('onclick')||'';
+    btn.classList.toggle('on', oc.includes("PICK_CH='"+PICK_CH+"'"));
+  });
+  if(_VX_TIMER){clearInterval(_VX_TIMER);_VX_TIMER=null;}
+  if(PICK_CH==='wa')        stage.innerHTML = waView(d);
+  else if(PICK_CH==='email')stage.innerHTML = emView(d);
+  else if(PICK_CH==='pec')  stage.innerHTML = pecView(d);
+  else if(PICK_CH==='call') stage.innerHTML = vxView(d);
+  else if(PICK_CH==='sms')  stage.innerHTML = smsView(d);
+  scrollBottom('wa-body'); scrollBottom('sms-body');
 }
 
-async function ibAiReply(id){
+/* ───────── WHATSAPP (chat + agente AI collegabile) ───────── */
+function waView(d){
+  const msgs=chMsgs(d,'wa');
+  const body = msgs.length ? msgs.map(m=>`
+    <div class="wa-msg ${m.dir==='out'?'out':'in'}">
+      <div class="wa-bubble">${m.text}<span class="wa-time">${m.time==='Adesso'?nowHM():m.time}${m.dir==='out'?' <span class="wa-tick">✓✓</span>':''}</span></div>
+    </div>`).join('')
+    : `<div style="text-align:center;color:var(--ink3);font-size:12px;padding:30px">Nessun messaggio WhatsApp. Scrivi per iniziare la conversazione.</div>`;
+  return `
+  <div class="chx-head wa-head">
+    <div class="chx-av">${initials(d.nome)}</div>
+    <div><div class="chx-nm">${d.nome}</div><div class="chx-sub">${d.tel} · online</div></div>
+    <div class="chx-act"><button class="chx-ibtn" title="Chiamata" onclick="PICK_CH='call';renderChannel(${d.id})">📞</button></div>
+  </div>
+  <div class="ag-bar">
+    <span class="ag-ic">🤖</span>
+    <span style="font-size:12px;font-weight:600;color:var(--ink2)">Agente AI</span>
+    <select class="ag-sel" onchange="AG.agent=this.value">
+      ${VOICES.map(v=>`<option ${AG.agent===v.id?'selected':''}>${v.id}</option>`).join('')}
+    </select>
+    <label class="switch"><input type="checkbox" ${AG.on?'checked':''} onchange="AG.on=this.checked;toast('Agente '+(this.checked?'collegato — risponde in automatico':'scollegato'))"><span class="sl"></span></label>
+    <span style="font-size:11px;color:${AG.on?'var(--green-dk)':'var(--ink3)'};font-weight:600">${AG.on?'● Collegato — risponde da solo':'○ Manuale'}</span>
+    <button class="btn btn-sm btn-ou" style="margin-left:auto" onclick="waTest(${d.id})">▶ Prova agente</button>
+  </div>
+  <div class="wa-body" id="wa-body">${body}</div>
+  <div class="wa-foot">
+    <input class="wa-inp" id="wa-inp" placeholder="Scrivi un messaggio${AG.on?' · risponde '+AG.agent:''}…" onkeydown="if(event.key==='Enter')waSend(${d.id})">
+    <button class="wa-send" onclick="waSend(${d.id})" title="Invia">➤</button>
+  </div>`;
+}
+function waSend(id){
   const d=D.find(x=>x.id===id); if(!d)return;
-  const inp=document.getElementById('ibInput'); inp.value='✨ Generazione...'; inp.disabled=true;
+  const inp=document.getElementById('wa-inp'); const t=inp.value.trim(); if(!t)return;
+  pushComm(d,'wa','out','GR',t); inp.value='';
+  renderChannel(id); scrollBottom('wa-body');
+  if(AG.on) waAgentReply(id);
+}
+function waTest(id){
+  const d=D.find(x=>x.id===id); if(!d)return;
+  if(!AG.on){ AG.on=true; }
+  pushComm(d,'wa','out',AG.agent,'Buongiorno '+d.nome.split(' ')[0]+', sono '+AG.agent+', assistente di Reattivo. Posso aiutarla a definire una soluzione sul suo debito?');
+  renderChannel(id); scrollBottom('wa-body');
+  toast('Test agente '+AG.agent+' avviato');
+}
+async function waAgentReply(id){
+  const d=D.find(x=>x.id===id); if(!d)return;
+  const body=document.getElementById('wa-body'); if(!body)return;
+  const tip=document.createElement('div'); tip.className='wa-msg in'; tip.id='wa-typing';
+  tip.innerHTML=`<div class="wa-bubble"><span class="ag-typing"><i></i><i></i><i></i></span></div>`;
+  body.appendChild(tip); scrollBottom('wa-body');
   const last=d.comms[0];
-  const a=await askAI(`Servicer NPL. Debitore ${d.nome}, debito ${eur(debtTot(d))}, DPD ${maxDpd(d)}, stato ${STATI[d.status].l}. ${last?'Ultimo messaggio: "'+last.text+'".':''} Scrivi una risposta ${CH[PICK_CH].n} professionale ed empatica in italiano, max 4 righe. Solo il testo.`,SYS_NPL);
-  inp.disabled=false;
-  inp.value=a||'Gentile '+d.nome+', grazie del riscontro. Siamo disponibili a trovare una soluzione sostenibile.';
-  inp.focus();
+  let a=await askAI(`Sei ${AG.agent}, agente AI WhatsApp di un servicer NPL. Debitore ${d.nome}, debito ${eur(debtTot(d))}, DPD ${maxDpd(d)}, stato ${STATI[d.status].l}. Messaggio del debitore: "${last?last.text:''}". Rispondi in italiano, tono cortese e concreto, max 3 righe. Solo il testo.`,SYS_NPL);
+  if(!a) a='La ringrazio per il riscontro. Possiamo valutare insieme un piano sostenibile: preferisce una rateizzazione o un saldo a stralcio? Resto a disposizione.';
+  const tp=document.getElementById('wa-typing'); if(tp) tp.remove();
+  pushComm(d,'wa','in',AG.agent,a);
+  renderChannel(id); scrollBottom('wa-body');
+}
+
+/* ───────── EMAIL (client + messaggi non letti) ───────── */
+function emView(d){
+  const msgs=chMsgs(d,'email').slice().reverse();
+  const list = msgs.length ? msgs.map(m=>{
+    const unread = m.dir==='in';
+    const who = m.dir==='out'? 'Tu → '+d.nome : d.nome;
+    const subj = m.text.length>34? m.text.slice(0,34)+'…' : m.text;
+    return `<div class="em-item ${unread?'unread':''}">
+      ${unread?'<span class="em-unreaddot"></span>':'<span style="width:8px"></span>'}
+      <div class="em-avatar" style="background:${m.dir==='out'?'var(--b600)':AGENTI[d.agente].c}">${m.dir==='out'?'TU':initials(d.nome)}</div>
+      <div style="flex:1;min-width:0"><div class="em-from">${who}</div><div class="em-subj">Re: piano di rientro</div><div class="em-prev">${subj}</div></div>
+      <span class="em-when">${m.time}</span>
+    </div>`;}).join('')
+    : `<div style="text-align:center;color:var(--ink3);font-size:12px;padding:24px">Nessuna email. Componi il primo messaggio qui sotto.</div>`;
+  const unreadN = msgs.filter(m=>m.dir==='in').length;
+  return `
+  <div class="chx-head em-head">
+    <div class="chx-av">✉️</div>
+    <div><div class="chx-nm">Email</div><div class="chx-sub">${d.email}${unreadN?' · '+unreadN+' non lette':''}</div></div>
+  </div>
+  <div class="em-list">${list}</div>
+  <div class="em-compose">
+    <div class="em-field"><label>A</label><input value="${d.email}"></div>
+    <div class="em-field"><label>Oggetto</label><input id="em-subj" value="Piano di rientro — pratica ${d.cf}"></div>
+    <textarea class="em-body" id="em-body" placeholder="Scrivi l'email…">Gentile ${d.nome},
+</textarea>
+    <div style="display:flex;gap:8px;justify-content:flex-end;margin-top:6px">
+      <button class="btn btn-ou" onclick="emAi(${d.id})">✨ Bozza AI</button>
+      <button class="btn btn-pr" onclick="emSend(${d.id})">📨 Invia email</button>
+    </div>
+  </div>`;
+}
+function emSend(id){
+  const d=D.find(x=>x.id===id); if(!d)return;
+  const b=document.getElementById('em-body'); const t=(b.value||'').trim(); if(!t){toast('Scrivi il testo dell\'email');return;}
+  pushComm(d,'email','out','GR',t.replace(/\n+/g,' ').slice(0,120));
+  renderChannel(id); toast('Email inviata a '+d.email);
+}
+async function emAi(id){
+  const d=D.find(x=>x.id===id); if(!d)return;
+  const b=document.getElementById('em-body'); b.value='✨ Generazione bozza…'; b.disabled=true;
+  let a=await askAI(`Scrivi un'email professionale ed empatica in italiano da un servicer NPL al debitore ${d.nome}, debito ${eur(debtTot(d))}, DPD ${maxDpd(d)}, stato ${STATI[d.status].l}. Proponi un piano di rientro o un saldo a stralcio. Includi saluti. Max 8 righe.`,SYS_NPL);
+  b.disabled=false;
+  b.value=a||`Gentile ${d.nome},\n\nLa contattiamo in merito alla Sua posizione (pratica ${d.cf}). Desideriamo trovare insieme una soluzione sostenibile: possiamo proporLe un piano di rientro personalizzato oppure un saldo a stralcio agevolato.\n\nRestiamo a disposizione per un confronto.\n\nCordiali saluti,\nReattivo NPL`;
+}
+
+/* ───────── PEC (certificata, con ricevute) ───────── */
+function pecView(d){
+  const msgs=chMsgs(d,'pec').slice().reverse();
+  const pecAddr = d.nome.toLowerCase().replace(/[^a-z]/g,'.').replace(/\.+/g,'.')+'@pec.it';
+  const list = msgs.length ? msgs.map(m=>`
+    <div class="pec-item">
+      <div class="pec-meta"><strong style="color:var(--ink2)">${m.dir==='out'?'Reattivo NPL':d.nome}</strong> · ${m.time}</div>
+      <div style="font-size:13px;color:var(--ink);margin-bottom:7px">${m.text}</div>
+      <div style="display:flex;gap:6px"><span class="pec-rcpt">✓ Accettazione</span><span class="pec-rcpt ${m.dir==='out'?'':'wait'}">${m.dir==='out'?'✓ Consegna':'⏳ In consegna'}</span></div>
+    </div>`).join('')
+    : `<div style="text-align:center;color:var(--ink3);font-size:12px;padding:24px">Nessuna PEC inviata.</div>`;
+  return `
+  <div class="chx-head pec-head">
+    <div class="chx-av">📮</div>
+    <div><div class="chx-nm">PEC certificata</div><div class="chx-sub">${pecAddr}</div></div>
+  </div>
+  <div class="pec-banner"><span class="pec-seal">⚖️</span><span>Comunicazioni con <strong>valore legale</strong>. Ogni invio genera ricevuta di accettazione e di avvenuta consegna a norma di legge.</span></div>
+  <div style="max-height:200px;overflow-y:auto">${list}</div>
+  <div class="em-compose">
+    <div class="em-field"><label>A (PEC)</label><input value="${pecAddr}"></div>
+    <div class="em-field"><label>Oggetto</label><input value="Diffida e messa in mora — pratica ${d.cf}"></div>
+    <textarea class="em-body" id="pec-body" placeholder="Testo della PEC…">Con la presente, a valere come formale messa in mora…</textarea>
+    <div style="display:flex;gap:8px;justify-content:flex-end;align-items:center;margin-top:6px">
+      <span style="font-size:11px;color:var(--pec-dk);margin-right:auto">🔒 Firma digitale attiva</span>
+      <button class="btn btn-pr" style="background:var(--pec-dk);border-color:var(--pec-dk)" onclick="pecSend(${d.id})">📮 Invia PEC certificata</button>
+    </div>
+  </div>`;
+}
+function pecSend(id){
+  const d=D.find(x=>x.id===id); if(!d)return;
+  const b=document.getElementById('pec-body'); const t=(b.value||'').trim(); if(!t){toast('Scrivi il testo della PEC');return;}
+  pushComm(d,'pec','out','GR',t.slice(0,120));
+  renderChannel(id); toast('PEC inviata — ricevuta di accettazione generata');
+}
+
+/* ───────── VOCE AI (stile ElevenLabs) ───────── */
+function vxView(d){
+  const calls=chMsgs(d,'call').slice().reverse();
+  const log = calls.length? `<div style="margin-top:14px"><div style="font-size:12px;font-weight:700;color:var(--ink2);margin-bottom:6px">Storico chiamate</div>${calls.map(c=>`<div class="ci-row"><span class="ci-ic">📞</span><span style="flex:1">${c.text}</span><span style="color:var(--ink3);font-size:11px">${c.time}</span></div>`).join('')}</div>`:'';
+  return `
+  <div class="chx-head" style="background:linear-gradient(135deg,#6B4FBB,#9B7EE8)">
+    <div class="chx-av">🎙️</div>
+    <div><div class="chx-nm">Agente Voce AI</div><div class="chx-sub">Conversational AI · ElevenLabs</div></div>
+  </div>
+  <div style="padding:16px">
+    <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px">
+      ${VOICES.map(v=>`<button class="ch-btn${AG.agent===v.id?' on':''}" style="color:var(--purple)" onclick="AG.agent='${v.id}';renderChannel(${d.id})">🔊 ${v.id}</button>`).join('')}
+    </div>
+    <div class="vx-stage">
+      <div class="vx-orb-wrap">
+        <div class="vx-orb idle" id="vx-orb"></div><div class="vx-ring"></div>
+      </div>
+      <div class="vx-wave" id="vx-wave">${'<i></i>'.repeat(7)}</div>
+      <div class="vx-name">${AG.agent}</div>
+      <div class="vx-status" id="vx-status">Pronta a chiamare ${d.nome}</div>
+      <button class="vx-callbtn start" id="vx-btn" onclick="vxToggle(${d.id})">📞 Avvia chiamata AI</button>
+      <div class="vx-transcript" id="vx-transcript" style="display:none"></div>
+    </div>
+    ${log}
+  </div>`;
+}
+function vxToggle(id){
+  const btn=document.getElementById('vx-btn');
+  if(btn && btn.classList.contains('stop')) return vxStop(id);
+  vxStart(id);
+}
+function vxStart(id){
+  const d=D.find(x=>x.id===id); if(!d)return;
+  const orb=document.getElementById('vx-orb'), wave=document.getElementById('vx-wave'),
+        st=document.getElementById('vx-status'), btn=document.getElementById('vx-btn'),
+        tr=document.getElementById('vx-transcript');
+  orb.classList.remove('idle'); orb.classList.add('live'); wave.classList.add('live');
+  st.textContent='● In chiamata · '+d.tel;
+  btn.className='vx-callbtn stop'; btn.textContent='⏹ Termina chiamata';
+  tr.style.display='block'; tr.innerHTML='';
+  const script=[
+    ['ai',`Buongiorno, parlo con ${d.nome.split(' ')[0]}? Sono ${AG.agent}, assistente vocale di Reattivo. La informo che la chiamata è gestita da un sistema di IA (EU AI Act).`],
+    ['user','Sì, sono io. Mi dica.'],
+    ['ai',`La contatto per la pratica con scaduto di ${maxDpd(d)} giorni. Vorremmo trovare una soluzione: posso proporle una rateizzazione sostenibile.`],
+    ['user','In questo periodo faccio fatica con l\'intera rata.'],
+    ['ai','Capisco. Posso strutturare un piano ridotto nei primi mesi, oppure un saldo a stralcio agevolato. Le invio i dettagli su WhatsApp, va bene?'],
+    ['user','Va bene, grazie.'],
+    ['ai','Perfetto, procedo. Esito: cliente disponibile a trattare. Buona giornata.']
+  ];
+  let i=0;
+  _VX_TIMER=setInterval(()=>{
+    if(i>=script.length){ vxStop(id,true); return; }
+    const [who,txt]=script[i++];
+    tr.innerHTML+=`<div class="vx-tline ${who==='user'?'user':''}"><b>${who==='ai'?AG.agent:d.nome.split(' ')[0]}:</b> ${txt}</div>`;
+    tr.scrollTop=tr.scrollHeight;
+  },1600);
+}
+function vxStop(id, done){
+  const d=D.find(x=>x.id===id);
+  if(_VX_TIMER){clearInterval(_VX_TIMER);_VX_TIMER=null;}
+  const orb=document.getElementById('vx-orb'), wave=document.getElementById('vx-wave'),
+        st=document.getElementById('vx-status'), btn=document.getElementById('vx-btn');
+  if(orb){orb.classList.remove('live');orb.classList.add('idle');}
+  if(wave)wave.classList.remove('live');
+  if(st)st.textContent= done?'✓ Chiamata completata · cliente disponibile a trattare':'Chiamata terminata';
+  if(btn){btn.className='vx-callbtn start';btn.textContent='📞 Avvia chiamata AI';}
+  if(d && done){ pushComm(d,'call','out',AG.agent,'Chiamata AI · '+maxDpd(d)+'gg scaduto — disponibile a trattare'); toast('Esito chiamata registrato'); }
+}
+
+/* ───────── SMS ───────── */
+function smsView(d){
+  const msgs=chMsgs(d,'sms');
+  const body = msgs.length ? msgs.map(m=>`<div class="sms-msg ${m.dir==='out'?'out':'in'}"><div class="sms-bubble">${m.text}</div></div>`).join('')
+    : `<div style="text-align:center;color:var(--ink3);font-size:12px;padding:30px">Nessun SMS inviato.</div>`;
+  return `
+  <div class="chx-head sms-head">
+    <div class="chx-av">📱</div>
+    <div><div class="chx-nm">SMS</div><div class="chx-sub">${d.tel}</div></div>
+  </div>
+  <div class="sms-body" id="sms-body">${body}</div>
+  <div class="sms-foot">
+    <input class="sms-inp" id="sms-inp" maxlength="160" placeholder="Messaggio di testo…" oninput="const c=document.getElementById('sms-cnt');if(c)c.textContent=this.value.length+'/160'" onkeydown="if(event.key==='Enter')smsSend(${d.id})">
+    <span class="sms-cnt" id="sms-cnt">0/160</span>
+    <button class="wa-send" style="background:var(--amber)" onclick="smsSend(${d.id})">➤</button>
+  </div>`;
+}
+function smsSend(id){
+  const d=D.find(x=>x.id===id); if(!d)return;
+  const inp=document.getElementById('sms-inp'); const t=inp.value.trim(); if(!t)return;
+  pushComm(d,'sms','out','GR',t); inp.value='';
+  renderChannel(id); scrollBottom('sms-body'); toast('SMS inviato a '+d.tel);
 }
 
 async function runDebtorAnalysis(id){
@@ -4563,32 +4974,75 @@ const CAMPAIGNS=[
 const OUTCOMES={piano:['Piano accordato','var(--green)','var(--green-bg)'],pagamento:['Pagherà','var(--b600)','var(--b100)'],richiamare:['Da richiamare','var(--amber)','var(--amber-bg)'],rifiuta:['Rifiuta','var(--red)','var(--red-bg)'],norisp:['Non risponde','var(--ink3)','var(--surf)']};
 
 V2RENDER.voce = (el) => {
+  if(!VSTATE.agent) VSTATE.agent = VOICES[0].id;
   el.innerHTML = `
-  <div class="ph"><div class="ph-l"><h1>Agente Voce AI 🎙️</h1><p>Chiamate automatiche di recupero in italiano · GDPR compliant</p></div>
-  <div class="ph-r"><button class="btn btn-pr" onclick="newVoiceCampaign()">+ Nuova campagna</button></div></div>
-  <div style="background:linear-gradient(135deg,var(--b900),var(--b700));border-radius:14px;padding:20px 24px;color:#fff;margin-bottom:16px;display:flex;gap:24px;flex-wrap:wrap;align-items:center">
-    <div><div style="font-size:13px;color:var(--green-lt);font-weight:600">● ATTIVO · 2 linee in chiamata</div>
-    <div style="font-size:18px;font-weight:700;margin-top:3px">Reattivo Voce · Italiano</div>
-    <div style="font-size:12px;color:rgba(255,255,255,.6)">Fascia oraria GDPR: Lun-Ven 9:00-13:00 / 15:00-19:00</div></div>
-    <div style="display:flex;gap:28px;margin-left:auto">
-      ${[['73','Chiamate totali'],['21','Piani accordati'],['2m 54s','Durata media'],['68%','Tasso contatto']].map(s=>`<div><div style="font-size:22px;font-weight:700;font-family:var(--mono)">${s[0]}</div><div style="font-size:11px;color:rgba(255,255,255,.55)">${s[1]}</div></div>`).join('')}
+  <div class="ph"><div class="ph-l"><h1>Agente Voce AI 🎙️</h1><p>Conversational AI in italiano · powered by ElevenLabs · GDPR &amp; EU AI Act</p></div>
+  <div class="ph-r"><button class="btn btn-ou" onclick="newVoiceCampaign()">📞 Nuova campagna</button><button class="btn btn-pr" onclick="toast('Editor agente — configura voce, prompt e knowledge base')">+ Nuovo agente</button></div></div>
+  <div class="vx-grid">
+    <div>
+      <div style="font-size:12px;font-weight:700;color:var(--ink2);margin-bottom:8px">I tuoi agenti vocali</div>
+      ${VOICES.map(v=>`<div class="vx-agent ${VSTATE.agent===v.id?'on':''}" onclick="VSTATE.agent='${v.id}';V2RENDER.voce(document.getElementById('view-voce'))">
+        <div class="vx-mini-orb"><span>🔊</span></div>
+        <div style="flex:1"><div style="font-weight:700;font-size:14px">${v.id}</div><div style="font-size:11.5px;color:var(--ink3)">${v.desc}</div>
+        <div style="margin-top:5px"><span class="badge" style="background:var(--purple-bg);color:var(--purple)">${v.tag}</span></div></div>
+        <span style="font-size:11px;color:var(--green-dk);font-weight:600">● Attivo</span>
+      </div>`).join('')}
+      <div class="card" style="margin-top:12px">
+        <div class="card-hd"><h2>⚙️ Configurazione · ${VSTATE.agent}</h2></div>
+        ${[['Modello','ElevenLabs Turbo v2.5'],['Lingua','Italiano (it-IT)'],['Latenza','~320 ms'],['Apertura EU AI Act','Obbligatoria'],['Fascia oraria','9:00-13:00 / 15:00-19:00'],['Registrazione','Attiva (consenso tracciato)']].map(r=>`<div class="plan-row"><span style="color:var(--ink3);font-size:12px">${r[0]}</span><span style="font-size:12px;font-weight:500">${r[1]}</span></div>`).join('')}
+      </div>
     </div>
-  </div>
-  <div class="g23 mb18">
-    <div class="card"><div class="card-hd"><h2>📞 Campagne attive</h2><span class="more" onclick="newVoiceCampaign()">+ Nuova</span></div>
-      ${CAMPAIGNS.map(c=>{ const pct=Math.round(c.done/c.n*100); return `<div style="border:1px solid var(--line);border-radius:11px;padding:13px;margin-bottom:8px">
-        <div style="display:flex;justify-content:space-between;margin-bottom:8px"><span style="font-weight:600;font-size:13px">${c.nome}</span><span style="font-size:11px;color:var(--ink3)">${c.done}/${c.n}</span></div>
-        <div style="height:6px;background:var(--surf);border-radius:3px;overflow:hidden;margin-bottom:8px"><div style="height:100%;width:${pct}%;background:linear-gradient(90deg,var(--b600),var(--b400));border-radius:3px"></div></div>
-        <div style="display:flex;gap:5px;flex-wrap:wrap">${Object.entries(c.out).filter(([,v])=>v).map(([k,v])=>`<span class="badge" style="background:${OUTCOMES[k][2]};color:${OUTCOMES[k][1]}">${OUTCOMES[k][0]} ${v}</span>`).join('')}</div>
-      </div>`; }).join('')}
-    </div>
-    <div class="card" style="height:fit-content">
-      <div class="card-hd"><h2>⚙️ Configurazione</h2></div>
-      ${[['Voce','Italiano femminile (Giulia)'],['Velocità','1.0x (normale)'],['Max tentativi','3 per debitore'],['Apertura EU AI Act','Attiva (obbligatoria)'],['Fascia oraria','9:00-13:00 / 15:00-19:00'],['Registrazione','Attiva (consenso tracciato)']].map(r=>`<div class="plan-row"><span style="color:var(--ink3);font-size:12px">${r[0]}</span><span style="font-size:12px;font-weight:500">${r[1]}</span></div>`).join('')}
-      <button class="btn btn-ou" style="width:100%;margin-top:12px" onclick="toast('Impostazioni salvate')">Salva impostazioni</button>
+    <div>
+      <div class="vx-stage">
+        <div class="vx-orb-wrap"><div class="vx-orb idle" id="v2-orb"></div><div class="vx-ring"></div></div>
+        <div class="vx-wave" id="v2-wave">${'<i></i>'.repeat(7)}</div>
+        <div class="vx-name">${VSTATE.agent}</div>
+        <div class="vx-status" id="v2-status">Pronta · premi per parlare con l'agente</div>
+        <button class="vx-callbtn start" id="v2-btn" onclick="v2Toggle()">🎤 Parla con l'agente</button>
+        <div class="vx-transcript" id="v2-transcript" style="display:none"></div>
+      </div>
+      <div style="background:linear-gradient(135deg,var(--b900),var(--b700));border-radius:14px;padding:16px 20px;color:#fff;margin-top:14px;display:flex;gap:24px;flex-wrap:wrap;align-items:center">
+        ${[['73','Chiamate'],['21','Piani'],['2m54s','Durata media'],['68%','Contatto']].map(s=>`<div><div style="font-size:20px;font-weight:700;font-family:var(--mono)">${s[0]}</div><div style="font-size:11px;color:rgba(255,255,255,.55)">${s[1]}</div></div>`).join('')}
+      </div>
+      <div class="card" style="margin-top:14px">
+        <div class="card-hd"><h2>📞 Campagne attive</h2><span class="more" onclick="newVoiceCampaign()">+ Nuova</span></div>
+        ${CAMPAIGNS.map(c=>{const pct=Math.round(c.done/c.n*100);return `<div style="border:1px solid var(--line);border-radius:11px;padding:12px;margin-bottom:8px">
+          <div style="display:flex;justify-content:space-between;margin-bottom:7px"><span style="font-weight:600;font-size:13px">${c.nome}</span><span style="font-size:11px;color:var(--ink3)">${c.done}/${c.n}</span></div>
+          <div style="height:6px;background:var(--surf);border-radius:3px;overflow:hidden"><div style="height:100%;width:${pct}%;background:linear-gradient(90deg,var(--purple),var(--purple-lt))"></div></div>
+        </div>`;}).join('')}
+      </div>
     </div>
   </div>`;
 };
+function v2Toggle(){
+  const btn=document.getElementById('v2-btn');
+  if(btn && btn.classList.contains('stop')) return v2Stop(true);
+  v2Start();
+}
+function v2Start(){
+  const orb=document.getElementById('v2-orb'),wave=document.getElementById('v2-wave'),st=document.getElementById('v2-status'),btn=document.getElementById('v2-btn'),tr=document.getElementById('v2-transcript');
+  if(!orb)return;
+  orb.classList.remove('idle');orb.classList.add('live');wave.classList.add('live');
+  st.textContent='● In ascolto…'; btn.className='vx-callbtn stop'; btn.textContent='⏹ Termina';
+  tr.style.display='block'; tr.innerHTML='';
+  const ag=VSTATE.agent;
+  const script=[['ai',`Ciao, sono ${ag}, l'agente vocale di Reattivo. Posso rispondere a domande sui debitori, sugli scaduti e proporre piani di rientro. Come posso aiutarti?`],['user','Qual è la situazione di Luca Ferretti?'],['ai','Luca Ferretti ha un GBV di 145.000 euro, 210 giorni di scaduto, stato sofferenza. Consiglio una proposta di saldo a stralcio.'],['user','Chiamalo per proporre il piano.'],['ai','Procedo: avvio la chiamata con apertura EU AI Act e registro l\'esito a CRM. Ti aggiorno appena conclusa.']];
+  let i=0;
+  _VX_TIMER=setInterval(()=>{
+    if(i>=script.length){v2Stop(true);return;}
+    const [who,txt]=script[i++];
+    tr.innerHTML+=`<div class="vx-tline ${who==='user'?'user':''}"><b>${who==='ai'?ag:'Tu'}:</b> ${txt}</div>`;
+    tr.scrollTop=tr.scrollHeight;
+  },1600);
+}
+function v2Stop(done){
+  if(_VX_TIMER){clearInterval(_VX_TIMER);_VX_TIMER=null;}
+  const orb=document.getElementById('v2-orb'),wave=document.getElementById('v2-wave'),st=document.getElementById('v2-status'),btn=document.getElementById('v2-btn');
+  if(orb){orb.classList.remove('live');orb.classList.add('idle');}
+  if(wave)wave.classList.remove('live');
+  if(st)st.textContent= done?'✓ Sessione conclusa':'Sessione terminata';
+  if(btn){btn.className='vx-callbtn start';btn.textContent='🎤 Parla con l\'agente';}
+}
 
 function newVoiceCampaign(){
   openModal(`<div class="modal-hd"><h3>🎙️ Nuova campagna chiamate</h3><button class="cop-x" style="background:var(--surf);color:var(--ink2)" onclick="closeModal()">✕</button></div>
@@ -4610,27 +5064,58 @@ const AUTOMATIONS = [
   {nome:'Onboarding nuovo debitore', trigger:'Nuovo debitore aggiunto', azioni:['Email informativa GDPR','Attendi 1 giorno','WhatsApp primo contatto'], attiva:false, eseguiti:0}
 ];
 
+let MKSEL = 0;
+function mkMeta(t){
+  const s=t.toLowerCase();
+  if(s.includes('whatsapp')) return {ic:'💬',c:'#25D366'};
+  if(s.includes('email'))    return {ic:'✉️',c:'#1E74D4'};
+  if(s.includes('pec'))      return {ic:'📮',c:'#0FA96E'};
+  if(s.includes('sms'))      return {ic:'📱',c:'#D97B00'};
+  if(s.includes('chiamata')||s.includes('voce')) return {ic:'📞',c:'#6B4FBB'};
+  if(s.includes('attendi')||s.includes('delay')) return {ic:'⏱',c:'#94A3B8'};
+  if(s.includes('alert')||s.includes('agente')||s.includes('escalation')) return {ic:'🔔',c:'#C93040'};
+  return {ic:'⚙️',c:'#64748B'};
+}
 V2RENDER.automazioni = (el) => {
+  if(MKSEL>=AUTOMATIONS.length) MKSEL=0;
+  const a=AUTOMATIONS[MKSEL];
+  const trig=mkMeta(a.trigger);
+  const nodes=[`<div class="mk-node"><div class="mk-bubble sel" style="background:linear-gradient(135deg,#6D00CC,#A855F7);color:#6D00CC" onclick="toast('Trigger: ${a.trigger}')"><span style="color:#fff">⚡</span><span class="mk-badge">1</span></div><div class="mk-lbl">Trigger</div><div class="mk-sub">${a.trigger}</div></div>`];
+  a.azioni.forEach((az,i)=>{
+    const m=mkMeta(az);
+    nodes.push(`<div class="mk-link"></div>`);
+    nodes.push(`<div class="mk-node"><div class="mk-bubble" style="background:${m.c};color:${m.c}" onclick="toast('Modulo: ${az}')"><span style="color:#fff">${m.ic}</span><span class="mk-badge">${i+2}</span></div><div class="mk-lbl">${az}</div></div>`);
+  });
+  nodes.push(`<div class="mk-link"></div><button class="mk-addnode" onclick="newAutomation()">+</button>`);
+
   el.innerHTML = `
-  <div class="ph"><div class="ph-l"><h1>Automazioni Workflow</h1><p>Sequenze automatiche di recupero · trigger, azioni, canali</p></div>
-  <div class="ph-r"><button class="btn btn-pr" onclick="newAutomation()">+ Nuova automazione</button></div></div>
-  <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
-  ${AUTOMATIONS.map((a,i)=>`<div class="auto-card">
-    <div style="display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:10px">
-      <div><div style="font-size:14px;font-weight:700">${a.nome}</div><div style="font-size:12px;color:var(--ink3);margin-top:3px">⚡ ${a.trigger}</div></div>
-      <label style="cursor:pointer;display:flex;align-items:center;gap:6px;font-size:12px">
-        <input type="checkbox" ${a.attiva?'checked':''} onchange="AUTOMATIONS[${i}].attiva=this.checked;toast('Automazione '+(this.checked?'attivata':'disattivata'))">
-        <span>${a.attiva?'Attiva':'Inattiva'}</span>
-      </label>
+  <div class="ph"><div class="ph-l"><h1>Automazioni Workflow</h1><p>Scenari visuali in stile no-code · trigger → moduli → canali</p></div>
+  <div class="ph-r"><button class="btn btn-pr" onclick="newAutomation()">+ Nuovo scenario</button></div></div>
+  <div class="mk-wrap">
+    <div>
+      <div class="mk-toolbar">
+        <button class="mk-run" onclick="toast('Scenario eseguito una volta — ${a.azioni.length} moduli')">▶ Esegui una volta</button>
+        <button class="mk-tbtn" onclick="toast('Pianificazione: ogni 15 min')">🕐 Pianifica</button>
+        <label style="margin-left:auto;display:flex;align-items:center;gap:7px;font-size:12px;cursor:pointer;color:var(--ink2)">
+          <span>${a.attiva?'Attivo':'In pausa'}</span>
+          <span class="switch"><input type="checkbox" ${a.attiva?'checked':''} onchange="AUTOMATIONS[${MKSEL}].attiva=this.checked;V2RENDER.automazioni(document.getElementById('view-automazioni'));toast('Scenario '+(this.checked?'attivato':'messo in pausa'))"><span class="sl"></span></span>
+        </label>
+      </div>
+      <div class="mk-canvas">
+        <div style="font-size:13px;font-weight:700;color:var(--ink2);margin-bottom:4px">${a.nome}</div>
+        <div style="font-size:11px;color:var(--ink3);margin-bottom:6px">🔄 ${a.eseguiti} esecuzioni totali</div>
+        <div class="mk-flow">${nodes.join('')}</div>
+      </div>
     </div>
-    <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:10px">
-      ${a.azioni.map(az=>`<span style="font-size:11px;background:var(--surf);border:1px solid var(--line);padding:3px 8px;border-radius:6px">${az}</span>`).join('<span style="color:var(--ink4)">→</span>')}
+    <div>
+      <div style="font-size:12px;font-weight:700;color:var(--ink2);margin-bottom:8px">Scenari (${AUTOMATIONS.length})</div>
+      ${AUTOMATIONS.map((s,i)=>`<div class="mk-scn ${MKSEL===i?'on':''}" onclick="MKSEL=${i};V2RENDER.automazioni(document.getElementById('view-automazioni'))">
+        <div class="mk-scn-ic">${mkMeta(s.azioni[0]||'').ic}</div>
+        <div style="flex:1;min-width:0"><div style="font-size:13px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">${s.nome}</div><div style="font-size:11px;color:var(--ink3)">${s.azioni.length} moduli · ${s.eseguiti} run</div></div>
+        <span class="mk-pill ${s.attiva?'on':'off'}">${s.attiva?'ON':'OFF'}</span>
+      </div>`).join('')}
+      <button class="btn btn-ou" style="width:100%;margin-top:6px" onclick="newAutomation()">+ Nuovo scenario</button>
     </div>
-    <div style="display:flex;align-items:center;justify-content:space-between;font-size:12px;color:var(--ink3)">
-      <span>🔄 ${a.eseguiti} esecuzioni</span>
-      <div style="display:flex;gap:6px"><button class="btn btn-sm btn-ou" onclick="editAutomation(${i})">Modifica</button><button class="btn btn-sm btn-ou" onclick="toast('Test avviato per: ${a.nome}')">▶ Test</button></div>
-    </div>
-  </div>`).join('')}
   </div>`;
 };
 
